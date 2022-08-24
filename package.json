@@ -1,0 +1,24 @@
+{
+  "name": "weather-cli",
+  "version": "1.0.0-alfa",
+  "description": "CLI for getting weather.",
+  "main": "index.js",
+  "engines": {
+    "node": ">14"
+  },
+
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laskevych/weather-cli.git"
+  },
+  "author": "Andrii Laskevych",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laskevych/weather-cli/issues"
+  },
+  "homepage": "https://github.com/laskevych/weather-cli#readme"
+}
