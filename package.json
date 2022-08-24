@@ -6,7 +6,6 @@
   "engines": {
     "node": ">14"
   },
-
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/laskevych/weather-cli/issues"
   },
-  "homepage": "https://github.com/laskevych/weather-cli#readme"
+  "homepage": "https://github.com/laskevych/weather-cli#readme",
+  "dependencies": {
+    "axios": "0.27.2"
+  }
 }
