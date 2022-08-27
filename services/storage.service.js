@@ -1,17 +1,41 @@
 import { homedir } from 'os';
-import { join, basename, dirname, extname, isAbsolute, resolve } from 'path';
+import { join } from 'path';
+import { promises } from 'fs'
 
 
-const filePath = join(homedir(), '/weather-cli-data.json');
+const configFilePath = join(homedir(), '/weather-cli-data.json');
 
-const saveKeyValue = (key, value) => {
-    console.log(basename(filePath));
-    console.log(dirname(filePath));
-    console.log(extname(filePath));
-    console.log(isAbsolute(filePath));
-    console.log(resolve(filePath, homedir()));
-}
+const saveValueByKey = async (key, value) => {
+    let config = await getConfig();
 
-saveKeyValue('test', 'test');
+    config[key] = value;
 
-export { saveKeyValue };
+    await promises.writeFile(configFilePath, JSON.stringify(config));
+};
+
+const getValueByKey = async (key) => {
+    let config = await getConfig();
+
+    return config[key];
+};
+
+const isExist = async (path) => {
+    try {
+        await promises.stat(path);
+        return true;
+    } catch (error) {
+        return false;
+    }
+};
+
+const getConfig = async () => {
+    let config = {};
+    if (await isExist(configFilePath)) {
+        const file = await promises.readFile(configFilePath);
+        config = JSON.parse(file);
+    }
+
+    return config;
+};
+
+export { saveValueByKey, getValueByKey };
