@@ -22,12 +22,15 @@ const printHelp = () => {
 
 const printWeather = (res) => {
     console.log(dedent(`
-        ${chalk.cyan('Weather report!')}
-        Погода у місті ${res?.name}.
-        ${getIcon(res?.weather[0]?.icon)} ${res?.weather[0]?.description}.
-        Температура ${res?.main?.temp} °C. Відчувається як ${res?.main?.feels_like} °C.
-        Швидкість вітру: ${res?.wind?.speed} м/c.
+        ${chalk.yellow(`Weather in ${res?.name}`)}
+        ${getIcon(res?.weather[0]?.icon)} ${capitalizeFirstLetter(res?.weather[0]?.description)}.
+        🌡 Temp ${Math.round(res?.main?.temp)} °C. Feels like ${Math.round(res?.main?.feels_like)} °C.
+        💨 Wind speed: ${res?.wind?.speed} m/s.
     `))
 };
+
+const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
 export { printError, printSuccess, printHelp, printWeather };

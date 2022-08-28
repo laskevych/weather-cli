@@ -1,7 +1,6 @@
 import axios from "axios";
 import { getValueByKey, STORAGE_KEYS } from './storage.service.js';
 
-
 const getWeather = async () => {
     const token = await getValueByKey(STORAGE_KEYS.token);
 
@@ -18,7 +17,6 @@ const getWeather = async () => {
         params: {
             q: city,
             appId: token,
-            lang: 'ua',
             units: 'metric'
         }
     });

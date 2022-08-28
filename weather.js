@@ -4,7 +4,6 @@ import { getArgs } from './helpers/args.js';
 import { getWeather } from './services/api.service.js';
 import { printError, printHelp, printSuccess, printWeather } from './services/log.service.js';
 import { getValueByKey, saveValueByKey, STORAGE_KEYS } from './services/storage.service.js'
-//ebb3f7ebf60cb5a08340c51c9b19d8c1
 
 const saveToken = async (token) => {
     try {
@@ -29,8 +28,6 @@ const saveCity = async (city) => {
 const getForcast = async () => {
     try {
         const weatherData = await getWeather();
-
-        console.log(weatherData);
         printWeather(weatherData);
     } catch (error) {
         let errorMessage;
@@ -51,8 +48,6 @@ const initCLI = () => {
 
     if (args.h) { 
         printHelp();
-        printError('test');
-        printSuccess('test');
     }
 
     if (args.s) {

@@ -29,10 +29,9 @@ node weather.js -t 5sbssk1128cjb -s Kyiv
 // Other run
 node weather.js
 
-Weather report!
-Погода у місті Kyiv.
-☁️ хмарно.
-Температура 27.62 °C. Відчувається як 27.6 °C.
-Швидкість вітру: 0.45 м/c.
+Weather in Kyiv
+☁️ Overcast clouds.
+🌡 Temp 27 °C. Feels like 27 °C.
+💨 Wind speed: 4.07 m/s.
 ```
 
