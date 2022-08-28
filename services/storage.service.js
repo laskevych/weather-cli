@@ -5,6 +5,11 @@ import { promises } from 'fs'
 
 const configFilePath = join(homedir(), '/weather-cli-data.json');
 
+const STORAGE_KEYS = {
+    token: 'token',
+    city: 'city'
+};
+
 const saveValueByKey = async (key, value) => {
     let config = await getConfig();
 
@@ -38,4 +43,4 @@ const getConfig = async () => {
     return config;
 };
 
-export { saveValueByKey, getValueByKey };
+export { saveValueByKey, getValueByKey, STORAGE_KEYS };
